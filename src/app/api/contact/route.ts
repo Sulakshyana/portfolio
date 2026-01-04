@@ -1,6 +1,6 @@
 // src/app/api/contact/route.ts
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { sendEmail } from "@/lib/email";
 
 // Email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,144 +39,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check environment variables
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
-      console.error("Email credentials not configured");
-      return NextResponse.json(
-        { success: false, error: "Email service not configured" },
-        { status: 500 }
-      );
-    }
-
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
-    // Verify transporter configuration
-    await transporter.verify();
-
-    // Send email with styled HTML
-    await transporter.sendMail({
-      from: `"Portfolio Contact Form" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // Send to your own email
-      subject: `Portfolio Contact: ${subject}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            body {
-              font-family: Arial, sans-serif;
-              line-height: 1.6;
-              color: #333;
-            }
-            .container {
-              max-width: 600px;
-              margin: 0 auto;
-              padding: 20px;
-            }
-            .header {
-              background: linear-gradient(90deg, #667eea, #764ba2);
-              color: white;
-              padding: 30px;
-              text-align: center;
-              border-radius: 8px 8px 0 0;
-            }
-            .content {
-              background: #ffffff;
-              padding: 30px;
-              border: 1px solid #e5e7eb;
-            }
-            .info-box {
-              background: #f3f4f6;
-              padding: 15px;
-              border-radius: 8px;
-              margin: 15px 0;
-              border-left: 4px solid #667eea;
-            }
-            .info-row {
-              margin: 10px 0;
-            }
-            .label {
-              font-weight: bold;
-              color: #667eea;
-            }
-            .message-box {
-              background: #f9fafb;
-              padding: 20px;
-              border-radius: 8px;
-              margin: 20px 0;
-              white-space: pre-wrap;
-              word-wrap: break-word;
-            }
-            .footer {
-              background: #f9fafb;
-              padding: 20px;
-              text-align: center;
-              border-radius: 0 0 8px 8px;
-              color: #6b7280;
-              font-size: 14px;
-            }
-            .reply-button {
-              display: inline-block;
-              background: linear-gradient(90deg, #667eea, #764ba2);
-              color: white;
-              padding: 12px 24px;
-              text-decoration: none;
-              border-radius: 6px;
-              margin: 20px 0;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1 style="margin: 0;">📧 New Contact Form Submission</h1>
-            </div>
-            <div class="content">
-              <div class="info-box">
-                <div class="info-row">
-                  <span class="label">From:</span> ${name}
-                </div>
-                <div class="info-row">
-                  <span class="label">Email:</span> <a href="mailto:${email}">${email}</a>
-                </div>
-                <div class="info-row">
-                  <span class="label">Subject:</span> ${subject}
-                </div>
-              </div>
-              
-              <h3 style="color: #667eea; margin-top: 30px;">Message:</h3>
-              <div class="message-box">
-                ${message}
-              </div>
-
-              <div style="text-align: center;">
-                <a href="mailto:${email}" class="reply-button">
-                  Reply to ${name}
-                </a>
-              </div>
-            </div>
-            <div class="footer">
-              <p>This email was sent from your portfolio website contact form</p>
-              <p style="margin-top: 10px; color: #9ca3af;">
-                Received on ${new Date().toLocaleString("en-US", {
-                  dateStyle: "full",
-                  timeStyle: "short",
-                })}
-              </p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `,
-      replyTo: email,
-    });
+    // Send email using the utility function
+    await sendEmail({ name, email, subject, message });
 
     return NextResponse.json({
       success: true,
@@ -203,7 +67,6 @@ export async function POST(request: Request) {
     );
   }
 }
-
 /* 
 ALTERNATIVE EMAIL OPTIONS (Choose one)
 
