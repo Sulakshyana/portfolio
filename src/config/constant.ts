@@ -13,7 +13,7 @@ const SITE_URL =
     ? "https://your-domain.com"
     : "http://localhost:3000"; // replace later
 
-export const ME = {
+const ME = {
   // Basic Info
   name: NAME,
   title: TITLE,
@@ -55,3 +55,5 @@ export const ME = {
     siteUrl: SITE_URL,
   },
 };
+
+export { ME, GITHUB_USERNAME };
