@@ -1,5 +1,5 @@
 // src/app/api/blogs/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Blog, { IBlog } from "@/models/Blog";
 
@@ -10,7 +10,7 @@ type BlogFilter = {
 };
 
 // GET all blogs
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
     await connectDB();
 
@@ -43,7 +43,7 @@ export async function GET(request: Request) {
 }
 
 // POST create new blog
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     await connectDB();
     const body: Partial<IBlog> = await request.json();

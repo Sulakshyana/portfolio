@@ -1,18 +1,18 @@
 // src/app/api/blogs/[id]/route.ts
 import connectDB from "@/lib/mongodb";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import Blog, { IBlog } from "@/models/Blog";
 
-interface Params {
-  params: { id: string };
-}
-
 // GET single blog by ID
-export async function GET(request: Request, { params }: Params) {
+export async function GET(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
+    const { id } = await context.params;
     await connectDB();
 
-    const blog = await Blog.findById(params.id);
+    const blog = await Blog.findById(id);
 
     if (!blog) {
       return NextResponse.json(
@@ -21,7 +21,6 @@ export async function GET(request: Request, { params }: Params) {
       );
     }
 
-    // Increment view count
     blog.views = (blog.views || 0) + 1;
     await blog.save();
 
@@ -35,12 +34,16 @@ export async function GET(request: Request, { params }: Params) {
 }
 
 // PUT update blog by ID
-export async function PUT(request: Request, { params }: Params) {
+export async function PUT(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
+    const { id } = await context.params;
     await connectDB();
 
     const body: Partial<IBlog> = await request.json();
-    const blog = await Blog.findByIdAndUpdate(params.id, body, {
+    const blog = await Blog.findByIdAndUpdate(id, body, {
       new: true,
       runValidators: true,
     });
@@ -62,11 +65,15 @@ export async function PUT(request: Request, { params }: Params) {
 }
 
 // DELETE blog by ID
-export async function DELETE(request: Request, { params }: Params) {
+export async function DELETE(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) {
   try {
+    const { id } = await context.params;
     await connectDB();
 
-    const blog = await Blog.findByIdAndDelete(params.id);
+    const blog = await Blog.findByIdAndDelete(id);
 
     if (!blog) {
       return NextResponse.json(
