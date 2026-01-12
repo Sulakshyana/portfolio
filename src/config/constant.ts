@@ -6,7 +6,7 @@ const LOCATION = "Patan, Nepal";
 
 const GITHUB_USERNAME = "sulakshyana";
 const LINKEDIN_USERNAME = "sulakshyana-ghimire";
-const EMAIL = "sulakshyanaghimire@gmail.com";
+const EMAIL = "contact@sulakshyanaghimire.com.np";
 const PHONE = "-";
 const SITE_URL =
   process.env.NODE_ENV === "production"
