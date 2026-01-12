@@ -83,7 +83,7 @@ const response = await fetch("https://api.web3forms.com/submit", {
     subject,
     message,
     from_name: `Portfolio Contact: ${name}`,
-    to_email: "swastikaghimire100@gmail.com",
+    to_email: "contact@sulakshyanaghimire.com.np",
   }),
 });
 const data = await response.json();
@@ -96,7 +96,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 await resend.emails.send({
   from: 'portfolio@yourdomain.com',
-  to: 'swastikaghimire100@gmail.com',
+  to: 'contact@sulakshyanaghimire.com.np',
   subject: subject,
   html: `
     <h2>New Contact Form Submission</h2>
@@ -115,7 +115,7 @@ import sgMail from '@sendgrid/mail';
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 await sgMail.send({
-  to: 'swastikaghimire100@gmail.com',
+  to: 'contact@sulakshyanaghimire.com.np',
   from: 'your-verified-email@domain.com',
   subject: subject,
   text: message,
@@ -137,7 +137,7 @@ const transporter = nodemailer.createTransport({
 
 await transporter.sendMail({
   from: process.env.EMAIL_USER,
-  to: 'swastikaghimire100@gmail.com',
+  to: 'contact@sulakshyanaghimire.com.np',
   subject: `Portfolio Contact: ${subject}`,
   html: `
     <h2>New Contact Form Submission</h2>
