@@ -141,9 +141,10 @@ http://localhost:3000
 **Swastika Ghimire**
 Full Stack Developer | JavaScript Specialist
 
-- Email: [swastikaghimire100@gmail.com](mailto:swastikaghimire100@gmail.com)
+- Email: [contact@sulakshyanaghimire.com.np](mailto:contact@sulakshyanaghimire.com.np)
 - GitHub: [https://github.com/sulakshyana](https://github.com/sulakshyana)
 - LinkedIn: [https://www.linkedin.com/in/sulakshyana-ghimire/](https://www.linkedin.com/in/sulakshyana-ghimire/)
+- Website: [https://sulakshyanaghimire.com.np](https://sulakshyanaghimire.com.np)
 
 ---
 
