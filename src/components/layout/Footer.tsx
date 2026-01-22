@@ -1,7 +1,24 @@
 // src/components/layout/Footer.tsx
+"use client";
+
 import Link from "next/link";
 import { ME } from "@/config/constant";
 import { FiGithub, FiMail, FiLinkedin, FiHeart } from "react-icons/fi";
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+const trackSocialClick = (platform: string) => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "social_click", {
+      event_category: "Social Media",
+      event_label: platform,
+    });
+  }
+};
 
 export default function Footer(): React.JSX.Element {
   const currentYear: number = new Date().getFullYear();
@@ -38,7 +55,7 @@ export default function Footer(): React.JSX.Element {
               </li>
               <li>
                 <Link
-                  href="/blogs"
+                  href="/#blogs"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Blogs
@@ -63,12 +80,14 @@ export default function Footer(): React.JSX.Element {
                 href={ME.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackSocialClick("GitHub")}
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiGithub size={20} />
               </a>
               <a
                 href={`mailto:${ME.email}`}
+                onClick={() => trackSocialClick("Email")}
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiMail size={20} />
@@ -77,6 +96,7 @@ export default function Footer(): React.JSX.Element {
                 href={ME.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackSocialClick("LinkedIn")}
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiLinkedin size={20} />

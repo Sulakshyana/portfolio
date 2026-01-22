@@ -8,6 +8,7 @@ import { ME } from "@/config/constant";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import RegisterSW from "@/hooks/RegisterSW";
+import Analytics from "@/components/analytics/analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={inter.className}>
         <RegisterSW />
         <Header />
+        <Analytics />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
