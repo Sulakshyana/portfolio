@@ -9,6 +9,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import RegisterSW from "@/hooks/RegisterSW";
 import Analytics from "@/components/analytics/analytics";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,6 +64,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <RegisterSW />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          strategy="afterInteractive"
+        />
+
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+    `}
+        </Script>
         <Header />
         <Analytics />
         <main className="min-h-screen">{children}</main>

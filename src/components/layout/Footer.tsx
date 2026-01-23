@@ -12,12 +12,10 @@ declare global {
 }
 
 const trackSocialClick = (platform: string) => {
-  if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("event", "social_click", {
-      event_category: "Social Media",
-      event_label: platform,
-    });
-  }
+  window.gtag?.("event", "social_click", {
+    platform,
+    location: "footer",
+  });
 };
 
 export default function Footer(): React.JSX.Element {
