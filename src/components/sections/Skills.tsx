@@ -1,22 +1,8 @@
 // src/components/sections/Skills.tsx
 "use client";
 import { motion } from "framer-motion";
-
-const skills = {
-  languages: ["C", "C++", "JavaScript", "TypeScript"],
-  frontend: [
-    "HTML5",
-    "CSS3",
-    "React.js",
-    "Next.js",
-    "Tailwind CSS",
-    "Bootstrap",
-    "SASS",
-  ],
-  backend: ["Node.js", "Express.js", "REST APIs", "JWT Authentication"],
-  databases: ["MongoDB", "Mongoose", "MySQL", "NoSQL"],
-  tools: ["Git", "GitHub", "VS Code", "Postman", "Figma"],
-};
+import profileData from "@/data/profile";
+const skills = profileData.skills;
 
 export default function Skills() {
   return (

@@ -1,31 +1,9 @@
 // src/components/sections/Education.tsx
 "use client";
 import { motion } from "framer-motion";
+import profileData from "@/data/profile";
 
-const education = [
-  {
-    id: 1,
-    degree: "Bachelor of Information Technology (BIT)",
-    institution: "Triton International College",
-    period: "2076-2080",
-    gpa: "3.60/4.0",
-  },
-  {
-    id: 2,
-    degree: "Higher Secondary Education (+2)",
-    institution: "Patan Multiple Campus",
-    period: "2074-2076",
-    gpa: "3.45/4.0",
-  },
-  {
-    id: 3,
-    degree: "Secondary Education (Grade 10)",
-    institution: "Mahalaxmi Academy",
-    period: "2074",
-    gpa: "3.5/4.0",
-  },
-];
-
+const education = profileData.education;
 export default function Education() {
   return (
     <section id="education" className="py-20 bg-gray-50">

@@ -1,6 +1,7 @@
 // src/components/sections/About.tsx
 "use client";
 import { motion } from "framer-motion";
+import profileData from "@/data/profile";
 
 export default function About() {
   return (
@@ -15,12 +16,7 @@ export default function About() {
           <h2 className="section-title text-center">About Me</h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-700 leading-relaxed">
-              Passionate Full Stack Developer with expertise in building
-              scalable web applications using modern JavaScript technologies.
-              Experienced in developing REST APIs, implementing secure
-              authentication systems, and creating responsive user interfaces.
-              Strong foundation in both frontend and backend development with a
-              focus on clean code and best practices.
+              {profileData.about}
             </p>
           </div>
         </motion.div>

@@ -47,6 +47,17 @@ export interface ProfileData {
   education: Education[];
   skills: Skills;
   languages: Language[];
+  projects: Project[];
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  features: string[];
+  tech: string[];
+  github?: string | null;
+  demo?: string | null;
 }
 
 export const profileData: ProfileData = {
@@ -124,6 +135,41 @@ export const profileData: ProfileData = {
     { name: "Nepali", level: "Native", percentage: 100 },
     { name: "English", level: "Fluent", percentage: 90 },
     { name: "Hindi", level: "Proficient", percentage: 75 },
+  ],
+
+  projects: [
+    {
+      id: 1,
+      title: "VIDTUBE",
+      description:
+        "A comprehensive video-sharing platform with robust backend architecture and secure authentication system.",
+      features: [
+        "Scalable REST API design",
+        "JWT authentication with refresh tokens",
+        "Media upload with Cloudinary",
+        "MongoDB aggregation pipelines",
+        "Complete CRUD operations",
+      ],
+      tech: ["Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary", "Multer"],
+      github: ME.githubUrl + "/vidTube",
+      demo: null,
+    },
+    {
+      id: 2,
+      title: "MULTIAPP DASHBOARD",
+      description:
+        "A single-page dashboard hosting multiple JavaScript applications including Expense Tracker, Weather App, and To-Do Manager.",
+      features: [
+        "Real-time weather data integration",
+        "Local storage CRUD operations",
+        "Dynamic UI with DOM APIs",
+        "Modular architecture",
+        "Clean code practices",
+      ],
+      tech: ["HTML5", "CSS3", "JavaScript ES6", "Weather API", "Local Storage"],
+      github: ME.githubUrl + "/multiapp-dashboard",
+      demo: null,
+    },
   ],
 };
 

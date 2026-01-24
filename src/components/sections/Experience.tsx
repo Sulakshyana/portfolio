@@ -1,27 +1,9 @@
 // src/components/sections/Experience.tsx
 "use client";
 import { motion } from "framer-motion";
+import profileData from "@/data/profile";
 
-const experience = [
-  {
-    id: 1,
-    title: "Frontend Developer",
-    company: "Outlines Research and Development",
-    location: "Patan",
-    period: "Poush 2080 - Baisakh 2081",
-    responsibilities: [
-      "APIs integration using Axios in React.js",
-      "Responsive web page development in React and Shopify",
-    ],
-    achievements: [
-      "Converted Figma designs to code for various projects",
-      "Developed responsive web pages with backend integration",
-      "Integrated APIs with Laravel backends",
-      "Implemented responsive designs in Shopify",
-    ],
-    skills: ["React.js", "Bootstrap", "Axios", "Figma", "Laravel", "Shopify"],
-  },
-];
+const experience = profileData.experience;
 
 export default function Experience() {
   return (
