@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function BlogPreview() {
   return (
-    <section id="blogsPreview" className="py-20 bg-white">
+    <section id="blogsPreview" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

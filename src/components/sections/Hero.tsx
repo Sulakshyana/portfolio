@@ -6,11 +6,11 @@ import { ME } from "@/config/constant";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 gradient-bg text-white">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 gradient-bg">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -30,7 +30,7 @@ export default function Hero() {
               stiffness: 260,
               damping: 20,
             }}
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-white flex items-center justify-center text-5xl font-bold shadow-2xl"
+            className="w-32 h-32 mx-auto mb-8 rounded-full flex items-center justify-center text-5xl font-bold shadow-2xl"
             style={{ color: "var(--color-primary)" }}
           >
             SG
@@ -50,7 +50,6 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             className="text-xl md:text-2xl mb-8"
-            style={{ color: "rgba(255, 255, 255, 0.9)" }}
           >
             {ME.title}
           </motion.p>
@@ -60,7 +59,6 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="text-lg mb-12 max-w-2xl mx-auto"
-            style={{ color: "rgba(255, 255, 255, 0.8)" }}
           >
             {ME.description}
           </motion.p>
@@ -128,7 +126,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-white rounded-full"
+            className="w-1.5 h-1.5 rounded-full"
           />
         </div>
       </motion.div>

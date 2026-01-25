@@ -6,7 +6,7 @@ import profileData from "@/data/profile";
 const education = profileData.education;
 export default function Education() {
   return (
-    <section id="education" className="py-20 bg-gray-50">
+    <section id="education" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

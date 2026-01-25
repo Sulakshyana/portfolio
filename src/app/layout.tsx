@@ -10,6 +10,7 @@ import Footer from "@/components/layout/Footer";
 import RegisterSW from "@/hooks/RegisterSW";
 import Analytics from "@/components/analytics/analytics";
 import Script from "next/script";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -61,7 +62,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={inter.className}>
         <RegisterSW />
         <Script
@@ -78,10 +79,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
       gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
     `}
         </Script>
-        <Header />
-        <Analytics />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <Analytics />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
