@@ -22,7 +22,7 @@ export default function Footer(): React.JSX.Element {
   const currentYear: number = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="text-white py-12 gradient-bg">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
@@ -79,14 +79,14 @@ export default function Footer(): React.JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackSocialClick("GitHub")}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiGithub size={20} />
               </a>
               <a
                 href={`mailto:${ME.email}`}
                 onClick={() => trackSocialClick("Email")}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiMail size={20} />
               </a>
@@ -95,7 +95,7 @@ export default function Footer(): React.JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackSocialClick("LinkedIn")}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiLinkedin size={20} />
               </a>

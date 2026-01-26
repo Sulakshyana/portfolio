@@ -39,7 +39,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white dark:bg-gray-900 shadow-lg py-4"
+          ? "bg-white nav-bar hero-text shadow-lg py-4"
           : "bg-transparent py-6"
       }`}
     >
@@ -55,7 +55,7 @@ export default function Header() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors font-medium"
+                  className="text-gray-300 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors font-medium"
                 >
                   {item.name}
                 </Link>
@@ -68,19 +68,18 @@ export default function Header() {
                 onClick={() =>
                   setTheme(resolvedTheme === "light" ? "dark" : "light")
                 }
-                className="px-4 py-2 rounded bg-primary text-white
-                     dark:bg-primary-dark
+                className="px-4 py-2 rounded text-white
                      hover:opacity-90 transition
                      flex items-center gap-2"
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === "light" ? (
                   <>
-                    <Moon size={20} /> Dark
+                    <Moon size={20} />
                   </>
                 ) : (
                   <>
-                    <Sun size={20} /> Light
+                    <Sun size={20} />
                   </>
                 )}
               </button>
@@ -89,7 +88,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 dark:text-gray-300"
+            className="md:hidden text-gray-300 dark:text-gray-300"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -104,7 +103,7 @@ export default function Header() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="block text-gray-700 dark:text-gray-300 hover:text-primary transition-colors font-medium"
+                  className="block text-gray-300 dark:text-gray-300 hover:text-primary transition-colors font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -118,10 +117,7 @@ export default function Header() {
                 onClick={() =>
                   setTheme(resolvedTheme === "light" ? "dark" : "light")
                 }
-                className="w-full px-4 py-2 rounded bg-primary text-white
-                     dark:bg-primary-dark
-                     hover:opacity-90 transition
-                     flex items-center justify-center gap-2"
+                className="px-4 py-2 text-white hover:opacity-90 transition flex items-center gap-2"
               >
                 {resolvedTheme === "light" ? (
                   <>

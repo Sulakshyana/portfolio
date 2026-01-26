@@ -5,7 +5,7 @@ import profileData from "@/data/profile";
 
 export default function About() {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 section-surface">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,7 +15,7 @@ export default function About() {
         >
           <h2 className="section-title text-center">About Me</h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg section-text leading-relaxed">
               {profileData.about}
             </p>
           </div>

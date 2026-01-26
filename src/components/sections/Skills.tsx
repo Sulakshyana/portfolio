@@ -71,7 +71,7 @@ function SkillCategory({
       <h3 className="text-lg font-semibold text-primary mb-4">{title}</h3>
       <ul className="space-y-2">
         {skills.map((skill) => (
-          <li key={skill} className="text-gray-700 flex items-start">
+          <li key={skill} className="section-text flex items-start">
             <span className="text-primary mr-2">▹</span>
             {skill}
           </li>

@@ -7,7 +7,7 @@ const experience = profileData.experience;
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 section-surface">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,10 +28,10 @@ export default function Experience() {
               viewport={{ once: true }}
               className="card"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              <h3 className="text-2xl font-bold section-text mb-2">
                 {exp.title}
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-400 mb-4">
                 {exp.company} - {exp.location} | {exp.period}
               </p>
 
@@ -41,7 +41,7 @@ export default function Experience() {
                 </h4>
                 <ul className="space-y-1">
                   {exp.responsibilities.map((item, i) => (
-                    <li key={i} className="text-gray-600 flex items-start">
+                    <li key={i} className="text-gray-400 flex items-start">
                       <span className="text-primary mr-2">▹</span>
                       {item}
                     </li>
@@ -55,7 +55,7 @@ export default function Experience() {
                 </h4>
                 <ul className="space-y-1">
                   {exp.achievements.map((item, i) => (
-                    <li key={i} className="text-gray-600 flex items-start">
+                    <li key={i} className="text-gray-400 flex items-start">
                       <span className="text-primary mr-2">▹</span>
                       {item}
                     </li>

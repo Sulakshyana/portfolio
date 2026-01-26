@@ -6,7 +6,7 @@ import { ME } from "@/config/constant";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 gradient-bg">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 gradient-bg hero-text">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"></div>
