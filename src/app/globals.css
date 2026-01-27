@@ -16,7 +16,6 @@
 
   --text-main: rgb(17 24 39);
   --text-muted: #4b5563;
-  --text-hero: #290e0e;
 }
 
 /* Dark mode */
@@ -31,7 +30,6 @@
 
   --text-main: rgb(251, 253, 255);
   --text-muted: #94a3b8;
-  --text-hero: #290e0e;
 }
 
 /* ======================================================
@@ -45,7 +43,21 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
 }
+/* Light mode - Inverted gradient (lighter colors) */
+.nav-logo {
+  background: linear-gradient(90deg, #ffffff, #faf5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+/* Dark mode - Bright gradient */
+.dark .nav-logo {
+  background: linear-gradient(90deg, #a78bfa, #e879f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 /* Text Gradient */
 .gradient-text {
   background: linear-gradient(
@@ -62,11 +74,11 @@ body {
   background-color: var(--color-primary);
 }
 
-.hero-text {
-  color: white;
+.layout-text {
+  color: rgb(217, 212, 212);
 }
-.dark .hero-text {
-  color: black;
+.dark .layout-text {
+  color: var(--text-muted);
 }
 /* Background Gradient */
 .gradient-bg {
@@ -75,6 +87,28 @@ body {
     var(--color-primary),
     var(--color-secondary)
   );
+}
+
+.icon-circle {
+  background: var(--color-primary-dark);
+  color: white;
+  border: 3px solid var(--color-primary);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 40px rgba(102, 126, 234, 0.4),
+    0 0 80px rgba(102, 126, 234, 0.2),
+    inset 0 0 20px rgba(102, 126, 234, 0.1);
+}
+
+/* Dark mode - Use bright gradient */
+.dark .icon-circle {
+  background: var(--color-primary-dark); /* #7c3aed - bright purple */
+  color: white;
+  border: 3px solid #a78bfa; /* Even lighter purple */
+  box-shadow:
+    0 0 40px rgba(124, 58, 237, 0.6),
+    0 0 80px rgba(124, 58, 237, 0.3),
+    inset 0 0 20px rgba(167, 139, 250, 0.2);
 }
 
 /* Cards */
@@ -146,6 +180,26 @@ body {
   color: transparent;
 }
 
+.section-subtitle {
+  color: var(--text-main);
+}
+
+.dark .section-subtitle {
+  color: var(--text-main);
+}
+
+.section-main-subtitle:hover {
+  color: var(--color-primary);
+}
+
+.section-text {
+  color: var(--text-muted);
+}
+
+.dark .section-text {
+  color: var(--text-muted);
+}
+
 /* Tech Badge */
 .tech-badge {
   display: inline-block;
@@ -181,14 +235,6 @@ body {
 
 .animation-delay-400 {
   animation-delay: 400ms;
-}
-
-.section-text {
-  color: var(--color-gray-600);
-}
-
-.dark .section-text {
-  color: var(--color-gray-200);
 }
 
 @media (max-width: 768px) {

@@ -28,21 +28,19 @@ export default function Experience() {
               viewport={{ once: true }}
               className="card"
             >
-              <h3 className="text-2xl font-bold section-text mb-2">
+              <h3 className="text-2xl font-bold section-subtitle section-main-subtitle mb-2">
                 {exp.title}
               </h3>
-              <p className="text-gray-400 mb-4">
+              <p className="section-subtitle font-semibold mb-4">
                 {exp.company} - {exp.location} | {exp.period}
               </p>
 
               <div className="mb-4">
-                <h4 className="font-semibold text-gray-800 mb-2">
-                  Responsibilities:
-                </h4>
+                <h4 className="section-subtitle mb-2">Responsibilities:</h4>
                 <ul className="space-y-1">
                   {exp.responsibilities.map((item, i) => (
-                    <li key={i} className="text-gray-400 flex items-start">
-                      <span className="text-primary mr-2">▹</span>
+                    <li key={i} className="section-text flex items-start">
+                      <span className="mr-2">▹</span>
                       {item}
                     </li>
                   ))}
@@ -50,13 +48,11 @@ export default function Experience() {
               </div>
 
               <div className="mb-4">
-                <h4 className="font-semibold text-gray-800 mb-2">
-                  Achievements:
-                </h4>
+                <h4 className="section-subtitle mb-2">Achievements:</h4>
                 <ul className="space-y-1">
                   {exp.achievements.map((item, i) => (
-                    <li key={i} className="text-gray-400 flex items-start">
-                      <span className="text-primary mr-2">▹</span>
+                    <li key={i} className="section-text flex items-start">
+                      <span className="mr-2">▹</span>
                       {item}
                     </li>
                   ))}

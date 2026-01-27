@@ -37,7 +37,7 @@ export default function Projects(): React.JSX.Element {
               className="card group"
             >
               <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-bold section-text group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold section-subtitle section-main-subtitle transition-colors">
                   {project.title}
                 </h3>
                 <div className="flex gap-3">
@@ -46,7 +46,7 @@ export default function Projects(): React.JSX.Element {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-primary transition-colors"
+                      className="section-subtitle transition-colors"
                     >
                       <FiGithub size={24} />
                     </a>
@@ -56,7 +56,7 @@ export default function Projects(): React.JSX.Element {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-primary transition-colors"
+                      className="section-subtitle transition-colors"
                     >
                       <FiExternalLink size={24} />
                     </a>
@@ -64,17 +64,17 @@ export default function Projects(): React.JSX.Element {
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-4">{project.description}</p>
+              <p className="section-text mb-4">{project.description}</p>
 
               <div className="mb-4">
-                <h4 className="font-semibold text-gray-800 mb-2">
+                <h4 className="section-subtitle font-semibold mb-2">
                   Key Features:
                 </h4>
                 <ul className="space-y-1">
                   {project.features.map((feature, i) => (
                     <li
                       key={i}
-                      className="text-sm text-gray-600 flex items-start"
+                      className="text-sm section-text flex items-start"
                     >
                       <span className="text-primary mr-2">▹</span>
                       {feature}

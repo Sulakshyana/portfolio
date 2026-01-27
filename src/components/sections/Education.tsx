@@ -27,12 +27,12 @@ export default function Education() {
               viewport={{ once: true }}
               className="card border-l-4 border-primary"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-1">
+              <h3 className="text-xl font-bold section-main-subtitle section-subtitle mb-1">
                 {edu.degree}
               </h3>
-              <p className="text-gray-400 mb-1">{edu.institution}</p>
-              <p className="text-sm text-gray-500 mb-2">{edu.period}</p>
-              <p className="font-semibold text-primary">GPA: {edu.gpa}</p>
+              <p className="section-text mb-1">{edu.institution}</p>
+              <p className="text-sm section-text mb-2">{edu.period}</p>
+              <p className="font-semibold section-text">GPA: {edu.gpa}</p>
             </motion.div>
           ))}
         </div>
