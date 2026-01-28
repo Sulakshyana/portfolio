@@ -75,7 +75,7 @@ body {
 }
 
 .layout-text {
-  color: rgb(217, 212, 212);
+  color: rgb(117, 106, 106);
 }
 .dark .layout-text {
   color: var(--text-muted);
@@ -198,6 +198,19 @@ body {
 
 .dark .section-text {
   color: var(--text-muted);
+}
+
+.btn-blog {
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.dark .btn-blog {
+  background-color: var(--color-primary);
 }
 
 /* Tech Badge */
