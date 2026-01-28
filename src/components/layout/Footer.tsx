@@ -22,13 +22,13 @@ export default function Footer(): React.JSX.Element {
   const currentYear: number = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="py-12 gradient-bg">
+      <div className="layout-text container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
           <div>
             <h3 className="text-2xl font-bold mb-4 gradient-text">SG</h3>
-            <p className="text-gray-400 mb-4">{ME.shortDescription}</p>
+            <p className="mb-4">{ME.shortDescription}</p>
           </div>
 
           {/* Quick Links */}
@@ -36,17 +36,14 @@ export default function Footer(): React.JSX.Element {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
+                <Link href="/" className=" hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   href="#projects"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className=" hover:text-white transition-colors"
                 >
                   Projects
                 </Link>
@@ -54,7 +51,7 @@ export default function Footer(): React.JSX.Element {
               <li>
                 <Link
                   href="/#blogs"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className=" hover:text-white transition-colors"
                 >
                   Blogs
                 </Link>
@@ -62,7 +59,7 @@ export default function Footer(): React.JSX.Element {
               <li>
                 <Link
                   href="#contact"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className=" hover:text-white transition-colors"
                 >
                   Contact
                 </Link>
@@ -79,14 +76,14 @@ export default function Footer(): React.JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackSocialClick("GitHub")}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiGithub size={20} />
               </a>
               <a
                 href={`mailto:${ME.email}`}
                 onClick={() => trackSocialClick("Email")}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiMail size={20} />
               </a>
@@ -95,7 +92,7 @@ export default function Footer(): React.JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackSocialClick("LinkedIn")}
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <FiLinkedin size={20} />
               </a>
@@ -105,7 +102,7 @@ export default function Footer(): React.JSX.Element {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-400 flex items-center justify-center gap-2">
+          <p className="flex items-center justify-center gap-2">
             © {currentYear} {ME.name}. Built with
             <FiHeart className="text-red-500" />
             using Next.js

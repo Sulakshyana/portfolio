@@ -54,7 +54,7 @@ export default function BlogsPage() {
           className="text-center mb-12"
         >
           <h1 className="text-5xl font-bold gradient-text mb-4">Blog</h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-400 text-lg">
             Thoughts, tutorials, and insights about web development
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export default function BlogsPage() {
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === category
                   ? "bg-linear-to-r from-primary to-secondary text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:shadow-md"
+                  : "bg-white text-gray-300 hover:shadow-md"
               }`}
             >
               {category}
@@ -96,7 +96,7 @@ export default function BlogsPage() {
             <h3 className="text-2xl font-semibold text-gray-800 mb-2">
               No blogs yet
             </h3>
-            <p className="text-gray-600">Check back soon for new content!</p>
+            <p className="text-gray-400">Check back soon for new content!</p>
           </motion.div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -119,7 +119,7 @@ export default function BlogsPage() {
                       {blog.title}
                     </h2>
 
-                    <p className="text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-gray-400 mb-4 line-clamp-3">
                       {blog.description}
                     </p>
 
