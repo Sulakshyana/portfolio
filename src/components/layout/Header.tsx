@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -16,6 +17,9 @@ const navItems = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isLandingPage = pathname === "/";
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -38,7 +42,7 @@ export default function Header() {
   return (
     <header
       className={`layout-text fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
+        isScrolled || isMobileMenuOpen || !isLandingPage
           ? "nav-bar shadow-lg py-4"
           : "bg-transparent py-6"
       }`}

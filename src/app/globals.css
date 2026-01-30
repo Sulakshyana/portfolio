@@ -75,8 +75,9 @@ body {
 }
 
 .layout-text {
-  color: rgb(117, 106, 106);
+  color: rgb(217, 212, 212);
 }
+
 .dark .layout-text {
   color: var(--text-muted);
 }
