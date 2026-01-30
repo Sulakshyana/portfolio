@@ -259,7 +259,7 @@ export default function Contact() {
               Prefer email? Reach me directly at{" "}
               <a
                 href={`mailto:${ME.email}`}
-                className="text-primary font-semibold hover:underline"
+                className="text-secondary font-semibold hover:underline"
               >
                 {ME.email}
               </a>
