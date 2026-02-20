@@ -6,7 +6,7 @@ import { ME } from "@/config/constant";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 gradient-bg">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 gradient-bg layout-text">
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl"></div>
@@ -30,8 +30,7 @@ export default function Hero() {
               stiffness: 260,
               damping: 20,
             }}
-            className="w-32 h-32 mx-auto mb-8 rounded-full flex items-center justify-center text-5xl font-bold shadow-2xl"
-            style={{ color: "var(--color-primary)" }}
+            className="w-32 h-32 mx-auto mb-8 rounded-full flex items-center justify-center text-5xl font-bold shadow-2xl icon-circle"
           >
             SG
           </motion.div>

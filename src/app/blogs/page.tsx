@@ -46,15 +46,15 @@ export default function BlogsPage() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-gray-50">
+    <div className="section-surface min-h-screen pt-32 pb-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold gradient-text mb-4">Blog</h1>
-          <p className="text-gray-600 text-lg">
+          <h1 className="section-title text-5xl font-bold mb-4">Blog</h1>
+          <p className="section-text text-lg">
             Thoughts, tutorials, and insights about web development
           </p>
         </motion.div>
@@ -70,10 +70,10 @@ export default function BlogsPage() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
+              className={`btn-blog px-6 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === category
                   ? "bg-linear-to-r from-primary to-secondary text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:shadow-md"
+                  : "bg-white text-gray-300 hover:shadow-md"
               }`}
             >
               {category}
@@ -84,22 +84,22 @@ export default function BlogsPage() {
         {/* Blog Grid */}
         {loading ? (
           <div className="text-center py-12">
-            <div className="inline-block w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+            <div className="section-text inline-block w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : blogs.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-20"
+            className="section-text text-center py-20"
           >
             <div className="text-6xl mb-4">📝</div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+            <h3 className="section-subtitle text-2xl font-semibold text-gray-800 mb-2">
               No blogs yet
             </h3>
-            <p className="text-gray-600">Check back soon for new content!</p>
+            <p className="section-text">Check back soon for new content!</p>
           </motion.div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="section-text grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog, index) => (
               <motion.div
                 key={`blog-${index}`}
@@ -119,7 +119,7 @@ export default function BlogsPage() {
                       {blog.title}
                     </h2>
 
-                    <p className="text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-gray-400 mb-4 line-clamp-3">
                       {blog.description}
                     </p>
 

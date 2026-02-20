@@ -57,7 +57,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 section-surface">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h2 className="section-title">Get In Touch</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="section-text text-lg max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from
             you.
             <br />
@@ -90,7 +90,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2"
+                    className="text-sm font-semibold section-text mb-2 flex items-center gap-2"
                   >
                     <FiUser className="text-primary" />
                     Your Name *
@@ -116,7 +116,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2"
+                    className="text-sm font-semibold section-text mb-2 flex items-center gap-2"
                   >
                     <FiMail className="text-primary" />
                     Your Email *
@@ -144,7 +144,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2"
+                  className="text-sm font-semibold section-text mb-2 flex items-center gap-2"
                 >
                   <FiMessageSquare className="text-primary" />
                   Subject *
@@ -171,7 +171,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-700 mb-2"
+                  className="block text-sm font-semibold section-text mb-2"
                 >
                   Message *
                 </label>
@@ -255,11 +255,11 @@ export default function Contact() {
             viewport={{ once: true }}
             className="mt-8 text-center"
           >
-            <p className="text-gray-600">
+            <p className="text-gray-400">
               Prefer email? Reach me directly at{" "}
               <a
                 href={`mailto:${ME.email}`}
-                className="text-primary font-semibold hover:underline"
+                className="text-secondary font-semibold hover:underline"
               >
                 {ME.email}
               </a>

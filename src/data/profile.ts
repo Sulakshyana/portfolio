@@ -87,7 +87,7 @@ export const profileData: ProfileData = {
         "Integrated APIs with Laravel backends",
         "Implemented responsive designs in Shopify",
       ],
-      skills: ["React.js", "Bootstrap", "Axios", "Figma", "Laravel", "Shopify"],
+      skills: ["React.js", "Bootstrap", "Axios", "Laravel", "Shopify"],
     },
   ],
 
@@ -95,14 +95,14 @@ export const profileData: ProfileData = {
     {
       id: 1,
       degree: "Bachelor of Information Technology (BIT)",
-      institution: "Triton International College",
+      institution: "Patan Multiple Campus",
       period: "2076-2080",
       gpa: "3.60/4.0",
     },
     {
       id: 2,
       degree: "Higher Secondary Education (+2)",
-      institution: "Patan Multiple Campus",
+      institution: "Triton International College",
       period: "2074-2076",
       gpa: "3.45/4.0",
     },
