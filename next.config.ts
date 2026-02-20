@@ -1,7 +1,9 @@
-// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  generateEtags: false,
+
   images: {
     remotePatterns: [
       {
