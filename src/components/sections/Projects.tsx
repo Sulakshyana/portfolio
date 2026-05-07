@@ -1,14 +1,11 @@
-// src/components/sections/Projects.tsx
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
-import profileData from "@/data/profile";
+import type { Project } from "@/data/profile";
 
-const projects = profileData.projects;
-
-export default function Projects(): React.JSX.Element {
+export default function Projects({ projects }: { projects: Project[] }): React.JSX.Element {
   return (
     <section id="projects" className="py-20 section-surface">
       <div className="container mx-auto px-4">
@@ -68,16 +65,11 @@ export default function Projects(): React.JSX.Element {
               <p className="section-text mb-4">{project.description}</p>
 
               <div className="mb-4">
-                <h4 className="section-subtitle font-semibold mb-2">
-                  Key Features:
-                </h4>
+                <h4 className="section-subtitle font-semibold mb-2">Key Features:</h4>
                 <ul className="space-y-1">
                   {project.features.map((feature, i) => (
-                    <li
-                      key={i}
-                      className="text-sm section-text flex items-start"
-                    >
-                      <span className="text-primary mr-2">▹</span>
+                    <li key={i} className="text-sm section-text flex items-start">
+                      <span className="text-primary mr-2" aria-hidden="true">▹</span>
                       {feature}
                     </li>
                   ))}

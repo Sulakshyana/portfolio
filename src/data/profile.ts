@@ -76,7 +76,7 @@ export const profileData: ProfileData = {
       title: "Frontend Developer",
       company: "Outlines Research and Development",
       location: "Patan",
-      period: "Poush 2080 - Baisakh 2081",
+      period: "Dec 2023 – May 2024",
       responsibilities: [
         "APIs integration using Axios in React.js",
         "Responsive web page development in React and Shopify",

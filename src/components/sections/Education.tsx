@@ -1,10 +1,8 @@
-// src/components/sections/Education.tsx
 "use client";
 import { motion } from "framer-motion";
-import profileData from "@/data/profile";
+import type { Education as EducationType } from "@/data/profile";
 
-const education = profileData.education;
-export default function Education() {
+export default function Education({ education }: { education: EducationType[] }) {
   return (
     <section id="education" className="py-20 section-surface">
       <div className="container mx-auto px-4">

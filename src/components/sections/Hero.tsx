@@ -108,11 +108,7 @@ export default function Hero() {
         aria-hidden="true"
       >
         <div className="w-6 h-10 rounded-full flex items-start justify-center p-2 border-2 border-white/50">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 rounded-full bg-white/80"
-          />
+          <span className="scroll-dot w-1.5 h-1.5 rounded-full bg-white/80 block" />
         </div>
       </motion.div>
     </section>

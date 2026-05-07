@@ -1,11 +1,8 @@
-// src/components/sections/Experience.tsx
 "use client";
 import { motion } from "framer-motion";
-import profileData from "@/data/profile";
+import type { Experience as ExperienceType } from "@/data/profile";
 
-const experience = profileData.experience;
-
-export default function Experience() {
+export default function Experience({ experience }: { experience: ExperienceType[] }) {
   return (
     <section id="experience" className="py-20 section-surface">
       <div className="container mx-auto px-4">
@@ -40,7 +37,7 @@ export default function Experience() {
                 <ul className="space-y-1">
                   {exp.responsibilities.map((item, i) => (
                     <li key={i} className="section-text flex items-start">
-                      <span className="mr-2">▹</span>
+                      <span className="mr-2" aria-hidden="true">▹</span>
                       {item}
                     </li>
                   ))}
@@ -52,7 +49,7 @@ export default function Experience() {
                 <ul className="space-y-1">
                   {exp.achievements.map((item, i) => (
                     <li key={i} className="section-text flex items-start">
-                      <span className="mr-2">▹</span>
+                      <span className="mr-2" aria-hidden="true">▹</span>
                       {item}
                     </li>
                   ))}

@@ -1,9 +1,7 @@
-// src/components/sections/About.tsx
 "use client";
 import { motion } from "framer-motion";
-import profileData from "@/data/profile";
 
-export default function About() {
+export default function About({ about }: { about: string }) {
   return (
     <section id="about" className="py-20 section-surface">
       <div className="container mx-auto px-4">
@@ -15,9 +13,7 @@ export default function About() {
         >
           <h2 className="section-title text-center">About Me</h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg section-text leading-relaxed">
-              {profileData.about}
-            </p>
+            <p className="text-lg section-text leading-relaxed">{about}</p>
           </div>
         </motion.div>
       </div>
