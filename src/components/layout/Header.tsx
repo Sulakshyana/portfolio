@@ -16,8 +16,17 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
-function ThemeIcon({ size, resolvedTheme }: { size: number; resolvedTheme: string | undefined }) {
-  if (!resolvedTheme) return <span className="block" style={{ width: size, height: size }} />;
+function ThemeIcon({
+  size,
+  resolvedTheme,
+  mounted,
+}: {
+  size: number;
+  resolvedTheme: string | undefined;
+  mounted: boolean;
+}) {
+  if (!mounted)
+    return <span className="block" style={{ width: size, height: size }} />;
   return resolvedTheme === "light" ? <Moon size={size} /> : <Sun size={size} />;
 }
 
@@ -25,6 +34,7 @@ export default function Header() {
   const pathname = usePathname();
   const isLandingPage = pathname === "/";
 
+  const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
@@ -33,6 +43,10 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
+    // eslint-disable-next-line
+    setMounted(true);
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -73,7 +87,11 @@ export default function Header() {
                 className="px-4 py-2 rounded text-white hover:opacity-90 transition flex items-center gap-2"
                 aria-label="Toggle theme"
               >
-                <ThemeIcon size={20} resolvedTheme={resolvedTheme} />
+                <ThemeIcon
+                  size={20}
+                  resolvedTheme={resolvedTheme}
+                  mounted={mounted}
+                />
               </button>
             </li>
           </ul>
@@ -87,7 +105,11 @@ export default function Header() {
               className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors"
               aria-label="Toggle theme"
             >
-              <ThemeIcon size={18} resolvedTheme={resolvedTheme} />
+              <ThemeIcon
+                size={18}
+                resolvedTheme={resolvedTheme}
+                mounted={mounted}
+              />
             </button>
 
             <button

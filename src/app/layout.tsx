@@ -74,6 +74,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={inter.className}>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: ME.name,
+            url: ME.seo.siteUrl,
+            jobTitle: ME.title,
+            description: ME.shortDescription,
+            sameAs: [ME.githubUrl, ME.linkedinUrl],
+            address: { "@type": "PostalAddress", addressLocality: ME.location },
+          }}
+        />
         <RegisterSW />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
@@ -89,18 +101,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
       gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
     `}
         </Script>
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: ME.name,
-            url: ME.seo.siteUrl,
-            jobTitle: ME.title,
-            description: ME.shortDescription,
-            sameAs: [ME.githubUrl, ME.linkedinUrl],
-            address: { "@type": "PostalAddress", addressLocality: ME.location },
-          }}
-        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <Analytics />
