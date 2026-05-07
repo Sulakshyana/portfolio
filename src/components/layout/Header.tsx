@@ -16,6 +16,11 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
+function ThemeIcon({ size, resolvedTheme }: { size: number; resolvedTheme: string | undefined }) {
+  if (!resolvedTheme) return <span className="block" style={{ width: size, height: size }} />;
+  return resolvedTheme === "light" ? <Moon size={size} /> : <Sun size={size} />;
+}
+
 export default function Header() {
   const pathname = usePathname();
   const isLandingPage = pathname === "/";
@@ -23,12 +28,6 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,8 +36,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  if (!mounted) return null;
 
   return (
     <header
@@ -73,46 +70,29 @@ export default function Header() {
                 onClick={() =>
                   setTheme(resolvedTheme === "light" ? "dark" : "light")
                 }
-                className="px-4 py-2 rounded text-white
-                     hover:opacity-90 transition
-                     flex items-center gap-2"
+                className="px-4 py-2 rounded text-white hover:opacity-90 transition flex items-center gap-2"
                 aria-label="Toggle theme"
               >
-                {resolvedTheme === "light" ? (
-                  <>
-                    <Moon size={20} />
-                  </>
-                ) : (
-                  <>
-                    <Sun size={20} />
-                  </>
-                )}
+                <ThemeIcon size={20} resolvedTheme={resolvedTheme} />
               </button>
             </li>
           </ul>
+
           {/* Mobile Controls */}
           <div className="flex items-center gap-3 md:hidden">
-            {/* Theme Toggle */}
             <button
               onClick={() =>
                 setTheme(resolvedTheme === "light" ? "dark" : "light")
               }
-              className="w-10 h-10 rounded-full flex items-center justify-center 
-               hover:bg-primary/20 transition-colors"
+              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors"
               aria-label="Toggle theme"
             >
-              {resolvedTheme === "light" ? (
-                <Moon size={18} />
-              ) : (
-                <Sun size={18} />
-              )}
+              <ThemeIcon size={18} resolvedTheme={resolvedTheme} />
             </button>
 
-            {/* Burger Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-10 h-10 rounded-full flex items-center justify-center 
-               hover:bg-primary/20 transition-colors"
+              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
