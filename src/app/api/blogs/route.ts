@@ -31,12 +31,10 @@ export async function GET(request: NextRequest) {
       count: blogs.length,
       data: blogs,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      {
-        success: false,
-        error: error.message,
-      },
+      { success: false, error: msg },
       { status: 500 }
     );
   }
@@ -56,12 +54,10 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      {
-        success: false,
-        error: error.message,
-      },
+      { success: false, error: msg },
       { status: 400 }
     );
   }
@@ -77,12 +73,10 @@ export async function DELETE() {
       success: true,
       message: "All blogs deleted",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      {
-        success: false,
-        error: error.message,
-      },
+      { success: false, error: msg },
       { status: 500 }
     );
   }

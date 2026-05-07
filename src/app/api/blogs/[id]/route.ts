@@ -25,9 +25,10 @@ export async function GET(
     await blog.save();
 
     return NextResponse.json({ success: true, data: blog });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: msg },
       { status: 500 }
     );
   }
@@ -56,9 +57,10 @@ export async function PUT(
     }
 
     return NextResponse.json({ success: true, data: blog });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: msg },
       { status: 400 }
     );
   }
@@ -86,9 +88,10 @@ export async function DELETE(
       success: true,
       message: "Blog deleted successfully",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: msg },
       { status: 500 }
     );
   }

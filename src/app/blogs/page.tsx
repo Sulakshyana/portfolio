@@ -1,7 +1,7 @@
 // src/app/blogs/page.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiClock, FiCalendar, FiTag } from "react-icons/fi";
@@ -21,11 +21,7 @@ export default function BlogsPage() {
     "Tutorial",
   ];
 
-  useEffect(() => {
-    fetchBlogs();
-  }, [selectedCategory]);
-
-  const fetchBlogs = async () => {
+  const fetchBlogs = useCallback(async () => {
     try {
       const url =
         selectedCategory === "All"
@@ -43,7 +39,12 @@ export default function BlogsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchBlogs();
+  }, [fetchBlogs]);
 
   return (
     <div className="section-surface min-h-screen pt-32 pb-20">

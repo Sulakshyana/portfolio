@@ -46,19 +46,21 @@ export async function POST(request: Request) {
       success: true,
       message: "Email sent successfully",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Contact form error:", error);
 
-    // Provide more specific error messages
     let errorMessage = "Failed to send message. Please try again.";
 
-    if (error.code === "EAUTH") {
-      errorMessage =
-        "Email authentication failed. Please contact the administrator.";
-    } else if (error.code === "ESOCKET") {
-      errorMessage = "Network error. Please check your connection.";
-    } else if (error.message) {
-      console.error("Detailed error:", error.message);
+    if (error instanceof Error) {
+      const emailError = error as Error & { code?: string };
+      if (emailError.code === "EAUTH") {
+        errorMessage =
+          "Email authentication failed. Please contact the administrator.";
+      } else if (emailError.code === "ESOCKET") {
+        errorMessage = "Network error. Please check your connection.";
+      } else {
+        console.error("Detailed error:", error.message);
+      }
     }
 
     return NextResponse.json(

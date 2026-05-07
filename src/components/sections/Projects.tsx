@@ -4,7 +4,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
-import { ME } from "@/config/constant";
 import profileData from "@/data/profile";
 
 const projects = profileData.projects;
