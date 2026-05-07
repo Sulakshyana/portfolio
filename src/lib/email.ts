@@ -8,7 +8,22 @@ interface EmailData {
   message: string;
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function sendEmail(data: EmailData): Promise<void> {
+  const safe = {
+    name: escapeHtml(data.name),
+    email: escapeHtml(data.email),
+    subject: escapeHtml(data.subject),
+    message: escapeHtml(data.message),
+  };
   // Check environment variables
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
     throw new Error("Email credentials not configured");
@@ -30,7 +45,7 @@ export async function sendEmail(data: EmailData): Promise<void> {
   await transporter.sendMail({
     from: `"Portfolio Contact Form" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_USER,
-    subject: `Portfolio Contact: ${data.subject}`,
+    subject: `Portfolio Contact: ${safe.subject}`,
     html: `
       <!DOCTYPE html>
       <html>
@@ -102,31 +117,29 @@ export async function sendEmail(data: EmailData): Promise<void> {
       <body>
         <div class="container">
           <div class="header">
-            <h1 style="margin: 0;">📧 New Contact Form Submission</h1>
+            <h1 style="margin: 0;">New Contact Form Submission</h1>
           </div>
           <div class="content">
             <div class="info-box">
               <div class="info-row">
-                <span class="label">From:</span> ${data.name}
+                <span class="label">From:</span> ${safe.name}
               </div>
               <div class="info-row">
-                <span class="label">Email:</span> <a href="mailto:${
-                  data.email
-                }">${data.email}</a>
+                <span class="label">Email:</span> <a href="mailto:${safe.email}">${safe.email}</a>
               </div>
               <div class="info-row">
-                <span class="label">Subject:</span> ${data.subject}
+                <span class="label">Subject:</span> ${safe.subject}
               </div>
             </div>
-            
+
             <h3 style="color: #667eea; margin-top: 30px;">Message:</h3>
             <div class="message-box">
-              ${data.message}
+              ${safe.message}
             </div>
 
             <div style="text-align: center;">
-              <a href="mailto:${data.email}" class="reply-button">
-                Reply to ${data.name}
+              <a href="mailto:${safe.email}" class="reply-button">
+                Reply to ${safe.name}
               </a>
             </div>
           </div>
