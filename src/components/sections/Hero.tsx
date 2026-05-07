@@ -1,7 +1,7 @@
 // src/components/sections/Hero.tsx
 "use client";
 import { motion } from "framer-motion";
-import { FiGithub, FiMail, FiPhone } from "react-icons/fi";
+import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
 import { ME } from "@/config/constant";
 
 export default function Hero() {
@@ -67,48 +67,36 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12"
+            className="flex flex-wrap justify-center gap-4 md:gap-6 mb-16"
           >
             <a
               href={`mailto:${ME.email}`}
-              className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(10px)",
-              }}
+              className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105 backdrop-blur-md bg-white/10"
             >
               <FiMail />
               <span className="hidden md:inline">{ME.email}</span>
               <span className="md:hidden">Email</span>
             </a>
             <a
-              href="tel:-"
-              className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(10px)",
-              }}
-            >
-              <FiPhone />
-              <span>-</span>
-            </a>
-            <a
               href={ME.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(10px)",
-              }}
+              className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105 backdrop-blur-md bg-white/10"
             >
               <FiGithub />
               <span>GitHub</span>
             </a>
+            <a
+              href={ME.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105 backdrop-blur-md bg-white/10"
+            >
+              <FiLinkedin />
+              <span>LinkedIn</span>
+            </a>
           </motion.div>
         </motion.div>
-        <br />
-        <br />
       </div>
 
       {/* Scroll Indicator */}
@@ -116,16 +104,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        aria-hidden="true"
       >
-        <div
-          className="w-6 h-10 rounded-full flex items-start justify-center p-2"
-          style={{ border: "2px solid rgba(255, 255, 255, 0.5)" }}
-        >
+        <div className="w-6 h-10 rounded-full flex items-start justify-center p-2 border-2 border-white/50">
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 rounded-full"
+            className="w-1.5 h-1.5 rounded-full bg-white/80"
           />
         </div>
       </motion.div>
