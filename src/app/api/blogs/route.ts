@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Blog, { IBlog } from "@/models/Blog";
+import { isAdminRequest } from "@/lib/adminAuth";
 
 // Define proper filter type for Mongoose query
 type BlogFilter = {
@@ -40,33 +41,27 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST create new blog
+// POST create new blog — requires admin cookie
 export async function POST(request: NextRequest) {
+  if (!isAdminRequest(request)) {
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectDB();
     const body: Partial<IBlog> = await request.json();
     const blog = await Blog.create(body);
 
-    return NextResponse.json(
-      {
-        success: true,
-        data: blog,
-      },
-      { status: 201 }
-    );
+    return NextResponse.json({ success: true, data: blog }, { status: 201 });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json(
-      { success: false, error: msg },
-      { status: 400 }
-    );
+    return NextResponse.json({ success: false, error: msg }, { status: 400 });
   }
 }
 
-// DELETE all blogs — requires ADMIN_SECRET header
+// DELETE all blogs — requires admin cookie
 export async function DELETE(request: NextRequest) {
-  const secret = request.headers.get("x-admin-secret");
-  if (!secret || secret !== process.env.ADMIN_SECRET) {
+  if (!isAdminRequest(request)) {
     return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
   }
 
@@ -74,15 +69,9 @@ export async function DELETE(request: NextRequest) {
     await connectDB();
     await Blog.deleteMany({});
 
-    return NextResponse.json({
-      success: true,
-      message: "All blogs deleted",
-    });
+    return NextResponse.json({ success: true, message: "All blogs deleted" });
   } catch (error: unknown) {
     const msg = error instanceof Error ? error.message : "Unknown error";
-    return NextResponse.json(
-      { success: false, error: msg },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
 }
