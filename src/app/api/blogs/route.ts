@@ -63,8 +63,13 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// DELETE all blogs
-export async function DELETE() {
+// DELETE all blogs — requires ADMIN_SECRET header
+export async function DELETE(request: NextRequest) {
+  const secret = request.headers.get("x-admin-secret");
+  if (!secret || secret !== process.env.ADMIN_SECRET) {
+    return NextResponse.json({ success: false, error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     await connectDB();
     await Blog.deleteMany({});
