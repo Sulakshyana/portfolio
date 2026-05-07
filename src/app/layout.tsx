@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import "./globals.css";
 import React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import { ME } from "@/config/constant";
@@ -12,7 +12,15 @@ import Analytics from "@/components/analytics/analytics";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+export const viewport: Viewport = {
+  themeColor: "#667eea",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(ME.seo.siteUrl),
@@ -30,7 +38,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    url: ME.githubUrl,
+    url: ME.seo.siteUrl,
     title: ME.seo.title,
     description: ME.seo.description,
     siteName: `${ME.name} Portfolio`,
@@ -39,6 +47,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
+        alt: `${ME.name} — ${ME.title}`,
       },
     ],
     locale: "en_US",

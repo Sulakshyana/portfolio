@@ -10,8 +10,8 @@ const EMAIL = "contact@sulakshyanaghimire.com.np";
 const PHONE = "-";
 const SITE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://sulakshyanaghimire.com.np/"
-    : "http://localhost:3000"; // replace later
+    ? "https://sulakshyanaghimire.com.np"
+    : "http://localhost:3000";
 
 const ME = {
   // Basic Info
