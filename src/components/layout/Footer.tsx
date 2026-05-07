@@ -5,12 +5,6 @@ import Link from "next/link";
 import { ME } from "@/config/constant";
 import { FiGithub, FiMail, FiLinkedin, FiHeart } from "react-icons/fi";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 const trackSocialClick = (platform: string) => {
   window.gtag?.("event", "social_click", {
     platform,

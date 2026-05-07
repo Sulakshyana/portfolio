@@ -1,3 +1,8 @@
+// Google Analytics
+interface Window {
+  gtag?: (...args: unknown[]) => void;
+}
+
 // For CSS/SCSS modules or global CSS
 declare module "*.css" {
   const content: { [className: string]: string };
