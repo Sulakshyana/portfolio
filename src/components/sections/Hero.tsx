@@ -73,7 +73,7 @@ export default function Hero() {
               href={`mailto:${ME.email}`}
               className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105 backdrop-blur-md bg-white/10"
             >
-              <FiMail />
+              <FiMail aria-hidden="true" />
               <span className="hidden md:inline">{ME.email}</span>
               <span className="md:hidden">Email</span>
             </a>
@@ -83,7 +83,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105 backdrop-blur-md bg-white/10"
             >
-              <FiGithub />
+              <FiGithub aria-hidden="true" />
               <span>GitHub</span>
             </a>
             <a
@@ -92,7 +92,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all hover:scale-105 backdrop-blur-md bg-white/10"
             >
-              <FiLinkedin />
+              <FiLinkedin aria-hidden="true" />
               <span>LinkedIn</span>
             </a>
           </motion.div>

@@ -45,9 +45,10 @@ export default function Projects(): React.JSX.Element {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.title} source on GitHub`}
                       className="section-subtitle transition-colors"
                     >
-                      <FiGithub size={24} />
+                      <FiGithub size={24} aria-hidden="true" />
                     </a>
                   )}
                   {project.demo && (
@@ -55,9 +56,10 @@ export default function Projects(): React.JSX.Element {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${project.title} live demo`}
                       className="section-subtitle transition-colors"
                     >
-                      <FiExternalLink size={24} />
+                      <FiExternalLink size={24} aria-hidden="true" />
                     </a>
                   )}
                 </div>

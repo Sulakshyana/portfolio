@@ -200,8 +200,8 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-red-50 border border-red-200 rounded-lg"
                 >
-                  <p className="text-red-600 text-sm font-medium">
-                    ❌ {errorMessage}
+                  <p role="alert" className="text-red-600 text-sm font-medium">
+                    <span aria-hidden="true">❌ </span>{errorMessage}
                   </p>
                 </motion.div>
               )}
@@ -213,8 +213,8 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-50 border border-green-200 rounded-lg"
                 >
-                  <p className="text-green-600 text-sm font-medium">
-                    ✓ Message sent successfully! I&apos;ll get back to you soon.
+                  <p role="status" className="text-green-600 text-sm font-medium">
+                    <span aria-hidden="true">✓ </span>Message sent successfully! I&apos;ll get back to you soon.
                   </p>
                 </motion.div>
               )}
