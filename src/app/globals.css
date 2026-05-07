@@ -65,9 +65,13 @@ body {
     var(--color-primary),
     var(--color-secondary)
   );
-
   -webkit-background-clip: text;
   background-clip: text;
+  color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(90deg, #a78bfa, #e879f9);
 }
 
 .nav-bar {
@@ -166,6 +170,11 @@ body {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
 }
 
+/* Alternating section background */
+.section-surface {
+  background-color: var(--bg-surface);
+}
+
 /* Section Titles */
 .section-title {
   font-size: 2.25rem;
@@ -179,6 +188,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.dark .section-title {
+  background-image: linear-gradient(90deg, #a78bfa, #e879f9);
 }
 
 .section-subtitle {
@@ -229,9 +242,43 @@ body {
   );
 }
 
+.dark .tech-badge {
+  background-image: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+/* Form inputs with dark mode support */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: rgb(17 24 39);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dark .form-input {
+  background-color: #1e293b;
+  color: rgb(251, 253, 255);
+  border-color: #475569;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.dark .form-input::placeholder {
+  color: #64748b;
+}
+
 /* Color Utilities */
 .text-primary {
   color: var(--color-primary);
+}
+
+.dark .text-primary {
+  color: #a78bfa;
 }
 
 .border-primary {
