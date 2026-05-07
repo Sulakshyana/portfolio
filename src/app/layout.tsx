@@ -9,6 +9,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import RegisterSW from "@/hooks/RegisterSW";
 import Analytics from "@/components/analytics/analytics";
+import JsonLd from "@/components/JsonLd";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 
@@ -88,6 +89,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
       gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
     `}
         </Script>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: ME.name,
+            url: ME.seo.siteUrl,
+            jobTitle: ME.title,
+            description: ME.shortDescription,
+            sameAs: [ME.githubUrl, ME.linkedinUrl],
+            address: { "@type": "PostalAddress", addressLocality: ME.location },
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <Analytics />
