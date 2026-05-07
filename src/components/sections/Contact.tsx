@@ -41,7 +41,7 @@ export default function Contact() {
         setStatus("error");
         setErrorMessage(data.error || "Failed to send message");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
       setErrorMessage("Failed to send message. Please try again.");
     }
@@ -68,10 +68,10 @@ export default function Contact() {
         >
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-text text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from
+            Have a project in mind or want to collaborate? I&apos;d love to hear from
             you.
             <br />
-            Fill out the form below and I'll get back to you as soon as
+            Fill out the form below and I&apos;ll get back to you as soon as
             possible.
           </p>
         </motion.div>
@@ -102,7 +102,7 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all"
+                    className="form-input"
                     style={{
                       borderColor: formData.name ? "var(--color-primary)" : "",
                       boxShadow: formData.name
@@ -128,7 +128,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all"
+                    className="form-input"
                     style={{
                       borderColor: formData.email ? "var(--color-primary)" : "",
                       boxShadow: formData.email
@@ -156,7 +156,7 @@ export default function Contact() {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all"
+                  className="form-input"
                   style={{
                     borderColor: formData.subject ? "var(--color-primary)" : "",
                     boxShadow: formData.subject
@@ -182,7 +182,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all resize-none"
+                  className="form-input resize-none"
                   style={{
                     borderColor: formData.message ? "var(--color-primary)" : "",
                     boxShadow: formData.message
@@ -214,7 +214,7 @@ export default function Contact() {
                   className="p-4 bg-green-50 border border-green-200 rounded-lg"
                 >
                   <p className="text-green-600 text-sm font-medium">
-                    ✓ Message sent successfully! I'll get back to you soon.
+                    ✓ Message sent successfully! I&apos;ll get back to you soon.
                   </p>
                 </motion.div>
               )}
