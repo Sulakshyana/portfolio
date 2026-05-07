@@ -1,16 +1,7 @@
-// src/components/layout/Footer.tsx
-"use client";
-
 import Link from "next/link";
 import { ME } from "@/config/constant";
 import { FiGithub, FiMail, FiLinkedin, FiHeart } from "react-icons/fi";
-
-const trackSocialClick = (platform: string) => {
-  window.gtag?.("event", "social_click", {
-    platform,
-    location: "footer",
-  });
-};
+import SocialLink from "./SocialLink";
 
 export default function Footer(): React.JSX.Element {
   const currentYear: number = new Date().getFullYear();
@@ -21,7 +12,7 @@ export default function Footer(): React.JSX.Element {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 gradient-text">SG</h3>
+            <p className="text-2xl font-bold mb-4 nav-logo inline-block">SG</p>
             <p className="mb-4">{ME.shortDescription}</p>
           </div>
 
@@ -30,31 +21,22 @@ export default function Footer(): React.JSX.Element {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className=" hover:text-white transition-colors">
+                <Link href="/" className="hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link
-                  href="#projects"
-                  className=" hover:text-white transition-colors"
-                >
+                <Link href="#projects" className="hover:text-white transition-colors">
                   Projects
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/#blogs"
-                  className=" hover:text-white transition-colors"
-                >
+                <Link href="/#blogsPreview" className="hover:text-white transition-colors">
                   Blogs
                 </Link>
               </li>
               <li>
-                <Link
-                  href="#contact"
-                  className=" hover:text-white transition-colors"
-                >
+                <Link href="#contact" className="hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
@@ -65,31 +47,31 @@ export default function Footer(): React.JSX.Element {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
-              <a
+              <SocialLink
                 href={ME.githubUrl}
+                label="GitHub profile"
+                platform="GitHub"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackSocialClick("GitHub")}
-                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
-                <FiGithub size={20} />
-              </a>
-              <a
+                <FiGithub size={20} aria-hidden="true" />
+              </SocialLink>
+              <SocialLink
                 href={`mailto:${ME.email}`}
-                onClick={() => trackSocialClick("Email")}
-                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                label="Send email"
+                platform="Email"
               >
-                <FiMail size={20} />
-              </a>
-              <a
+                <FiMail size={20} aria-hidden="true" />
+              </SocialLink>
+              <SocialLink
                 href={ME.linkedinUrl}
+                label="LinkedIn profile"
+                platform="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackSocialClick("LinkedIn")}
-                className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
-                <FiLinkedin size={20} />
-              </a>
+                <FiLinkedin size={20} aria-hidden="true" />
+              </SocialLink>
             </div>
           </div>
         </div>
@@ -98,7 +80,7 @@ export default function Footer(): React.JSX.Element {
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="flex items-center justify-center gap-2">
             © {currentYear} {ME.name}. Built with
-            <FiHeart className="text-red-500" />
+            <FiHeart className="text-red-500" aria-hidden="true" />
             using Next.js
           </p>
         </div>
