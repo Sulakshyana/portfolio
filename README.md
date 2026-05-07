@@ -7,18 +7,22 @@ Built with Next.js 16, showcasing projects, experience, skills, and a blog.
 
 ---
 
-## About
-
-This portfolio presents my work as a Full Stack / Frontend-focused developer — featuring professional experience, highlighted projects, a MongoDB-powered blog, and a working contact form.
-
----
-
 ## Tech Stack
 
 - **Framework** — Next.js 16 App Router, React 19, TypeScript
-- **Styling** — Tailwind CSS v4, Framer Motion
-- **Backend** — Node.js, MongoDB (Mongoose), Nodemailer
-- **Features** — Dark mode, PWA-ready, SEO optimized, Google Analytics
+- **Styling** — Tailwind CSS v4, Framer Motion, dark mode
+- **Backend** — MongoDB (Mongoose), Nodemailer
+- **SEO** — JSON-LD structured data, sitemap, Open Graph, PWA manifest
+- **Analytics** — Google Analytics 4
+
+---
+
+## Features
+
+- **Portfolio sections** — Hero, About, Experience, Projects, Skills, Education, Contact
+- **Blog** — MongoDB-powered posts with pagination, category filter, markdown rendering, view counter, syntax-highlighted code blocks
+- **Admin dashboard** — password-protected at `/admin`; create, edit, and delete posts with a live markdown preview editor
+- **Contact form** — sends email via Nodemailer with HTML injection protection
 
 ---
 
@@ -31,6 +35,8 @@ npm run dev
 ```
 
 See [`.env.example`](.env.example) for required environment variables.
+
+The admin dashboard is available at `/admin` — set `ADMIN_SECRET` in your `.env.local` and use it as the password.
 
 ---
 
